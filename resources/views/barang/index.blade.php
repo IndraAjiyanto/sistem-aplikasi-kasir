@@ -33,4 +33,5 @@
         </tr>
         @endforeach
     </table>
+    {{ $barangs->links() }}
 @endsection

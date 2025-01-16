@@ -71,7 +71,7 @@ class BarangMasukController extends Controller
     public function edit(string $id)
     {
         return view('stok.edit',[
-            'barang_masuks' => Barang_Masuk::where('kode_barang_masuk',$id)->first()
+            'barang_masuk' => Barang_Masuk::where('kode_barang_masuk',$id)->first()
         ]);
     }
 
