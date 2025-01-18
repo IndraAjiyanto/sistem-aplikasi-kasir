@@ -49,9 +49,9 @@
                 const satuanBarang = selectedOption.getAttribute('data-satuan') || '-';
                 const jumlahBeli = jumlahBeliInput.value || 0;
 
-                satuanBeliSpan.textContent = satuanBarang; // Update satuan
+                satuanBeliSpan.textContent = satuanBarang; 
                 const totalHarga = hargaBarang * jumlahBeli;
-                totalHargaInput.value = totalHarga; // Format dua desimal
+                totalHargaInput.value = totalHarga; 
             }
 
             kodeBarangSelect.addEventListener('change', updateSatuanAndCalculateTotal);

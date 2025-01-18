@@ -34,4 +34,4 @@ Route::resource('/barang', BarangController::class)->middleware('auth');
 Route::resource('/pemasok', PemasokController::class)->middleware('auth');
 Route::resource('/penjualan', PenjualanController::class)->middleware('auth');
 Route::resource('/stok', BarangMasukController::class)->middleware('auth');
-Route::resource('/transaksi', TransaksiController::class);
+Route::resource('/transaksi', TransaksiController::class)->middleware('pengguna');

@@ -70,13 +70,14 @@ class PenggunaController extends Controller
     {
         $rules = ([
             'nama' => 'required',
+            // 'username' => 'required|unique:users',
             'password' => 'required'
         ]);   
 
         $pengguna = User::find($id);
 
         if($request->username != $pengguna->username){
-            $rules['username'] = ['required','unique:penggunas'];
+            $rules['username'] = ['required','unique:users'];
         }
 
         $validate = $request->validate($rules);

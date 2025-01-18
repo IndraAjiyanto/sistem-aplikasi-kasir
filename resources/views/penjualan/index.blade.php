@@ -1,6 +1,10 @@
 
 @extends('layouts.main')
 @section('content')
+
+@if(session()->has('success'))
+<p>{{session('success')}}</p>
+@endif
 <a href="/penjualan/create">tambah penjualan</a>
 <table border=1>
         <tr>

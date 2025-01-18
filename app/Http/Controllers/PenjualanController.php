@@ -50,6 +50,7 @@ class PenjualanController extends Controller
         $transaksi = Transaksi::where('kode', $validate['kode_transaksi'])->first();
         Penjualan::create($validate);
         $transaksi->increment('total_bayar',  $validate['total_harga']);
+        $request->session()->flash('success','berhasil');
         return redirect('/penjualan');
     }
 
