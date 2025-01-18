@@ -12,6 +12,9 @@ class Transaksi extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'kode';
+    protected $guarded = [];
+
     public function pengguna(){
         return $this->belongsTo(User::class, 'id_pengguna');
     }

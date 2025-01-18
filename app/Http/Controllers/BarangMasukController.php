@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Barang_Masuk;
+use App\Models\Barang;
+use App\Models\Pemasok;
+use App\Models\User;
 
 class BarangMasukController extends Controller
 {
@@ -34,7 +37,7 @@ class BarangMasukController extends Controller
             'kode' => $kode,
             'barangs' => Barang::all(),
             'pemasoks' => Pemasok::all(),
-            'penggunas' => Pengguna::all()
+            'penggunas' => User::all()
         ]);
     }
 

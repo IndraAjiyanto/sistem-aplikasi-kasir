@@ -10,13 +10,13 @@
                     <a class="nav-link" href="/pengguna">Pengguna</a>
                 </li>
                 @endcan
+                @auth
                 <li class="nav-item">
                     <a class="nav-link" href="/barang">Barang</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/transaksi">Tarnsaksi</a>
                 </li>
-                    @auth
                     <li class="nav-item">
                 <form action="/logout" method="post">
             @csrf

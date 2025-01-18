@@ -19,7 +19,7 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $barang_masuk->kode_barang_masuk }}</td>
             <td>{{ $barang_masuk->kode_barang }}</td>
-            <td>{{ $barang_masuk->id_pengguna }}</td>
+            <td>{{ $barang_masuk->pengguna->nama }}</td>
             <td>{{ $barang_masuk->id_pemasok }}</td>
             <td>{{ $barang_masuk->jumlah_masuk }}</td>
             <td>{{ $barang_masuk->tanggal_masuk }}</td>

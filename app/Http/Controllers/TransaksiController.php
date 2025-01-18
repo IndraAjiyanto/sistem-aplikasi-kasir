@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Transaksi;
+use App\Models\User;
+use App\Models\Penjualan;
+
 class TransaksiController extends Controller
 {
     /**
@@ -11,7 +15,12 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        //
+        $penjualans = Penjualan::all();
+
+        return view("transaksi.index",[
+            'transaksis' => Transaksi::all(),
+            'penjualans' => Penjualan::all()
+        ]);
     }
 
     /**
@@ -19,7 +28,16 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        //
+        $transasi_terkahir = Transaksi::latest()->first();
+        if($transasi_terkahir){
+            $kode = $transasi_terkahir->kode + 1;
+        }else{
+            $kode = 1;
+        }
+        return view('transaksi.create',[
+            'kode' => $kode,
+            'penggunas' => User::where('username', '!=', 'admin')->get()
+        ]);
     }
 
     /**
@@ -27,7 +45,16 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'kode' => 'required',
+            'id_pengguna' => 'required',
+            'tanggal' => 'required',
+            'total_bayar' => 'required|integer',
+            'keterangan' => 'required'
+        ]);
+
+        Transaksi::create($validate);
+        return redirect('/barang');
     }
 
     /**
@@ -59,6 +86,7 @@ class TransaksiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Transaksi::where('kode',$id)->delete();
+        return redirect('/transaksi');
     }
 }

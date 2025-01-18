@@ -30,7 +30,7 @@ class PenjualanController extends Controller
             'penjualans' => Penjualan::all(),
             'transaksis' => Transaksi::all(),
             'barangs' => Barang::all(),
-            'penggunas' => User::all()
+            'penggunas' => User::where('username', '!=', 'admin')->get()    
         ]);
     }
 
@@ -46,7 +46,10 @@ class PenjualanController extends Controller
             'total_harga' => 'required|integer'
         ]);
 
+        
+        $transaksi = Transaksi::where('kode', $validate['kode_transaksi'])->first();
         Penjualan::create($validate);
+        $transaksi->increment('total_bayar',  $validate['total_harga']);
         return redirect('/penjualan');
     }
 

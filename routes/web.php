@@ -8,6 +8,7 @@ use App\Http\Controllers\PemasokController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\BarangMasukController;
+use App\Http\Controllers\TransController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +30,8 @@ Route::post('/login', [LoginController::class, 'authentication']);
 Route::get('/dashboard', [LoginController::class, 'dashboard'])->middleware('auth');
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::resource('/pengguna', PenggunaController::class)->middleware('admin');
-Route::resource('/barang', BarangController::class);
-Route::resource('/pemasok', PemasokController::class);
+Route::resource('/barang', BarangController::class)->middleware('auth');
+Route::resource('/pemasok', PemasokController::class)->middleware('auth');
+Route::resource('/penjualan', PenjualanController::class)->middleware('auth');
+Route::resource('/stok', BarangMasukController::class)->middleware('auth');
 Route::resource('/transaksi', TransaksiController::class);
-Route::resource('/penjualan', PenjualanController::class);
-Route::resource('/stok', BarangMasukController::class);

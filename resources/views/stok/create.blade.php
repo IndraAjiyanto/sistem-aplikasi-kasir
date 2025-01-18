@@ -21,19 +21,19 @@
         <select class="form-select" name="id_pengguna" id="id_pengguna">
             <option selected>Pilih Pengguna</option>
             @foreach($penggunas as $pengguna)
-                <option value="{{ $pengguna->kode }}" data-harga="{{ $pengguna->harga_pengguna }}" data-satuan="{{ $pengguna->satuan_pengguna }}">
-                    {{ $pengguna->nama_barang }}
+            <option value="{{ $pengguna->id }}">
+                    {{ $pengguna->nama }}
                 </option>
             @endforeach
         </select>
         @error('id_pengguna') <p>{{ $message }}</p> <br>@enderror
 
-        <label for="nama_barang">nama barang</label>
-        <input type="text" name="nama_barang" id="nama_barang"><br>
-        @error('nama_barang') <p>{{ $message }}</p> <br>@enderror
-        <label for="stok">stok</label>
-        <input type="text" name="stok" id="stok"><br>
-        @error('stok') <p>{{ $message }}</p> <br>@enderror
+        <label for="jumlah_masuk">jumlah masuk</label>
+        <input type="text" name="jumlah_masuk" id="jumlah_masuk"><br>
+        @error('jumlah_masuk') <p>{{ $message }}</p> <br>@enderror
+        <label for="tanggal_masuk">tanggal masuk</label>
+        <input type="text" name="tanggal_masuk" id="tanggal_masuk"><br>
+        @error('tanggal_masuk') <p>{{ $message }}</p> <br>@enderror
         <label for="harga_barang">harga barang</label>
         <input type="text" name="harga_barang" id="harga_barang"><br>
         @error('harga_barang') <p>{{ $message }}</p> <br>@enderror
