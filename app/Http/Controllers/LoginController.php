@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Pemasok;
+use App\Models\Transaksi;
+use App\Models\Barang;
+use App\Models\User;
+
 
 class LoginController extends Controller
 {
@@ -30,7 +35,10 @@ class LoginController extends Controller
 
     public function dashboard(){
         return view('dashboard', [
-
+            'barang' => Barang::count(),
+            'pemasok' => Pemasok::count(),
+            'pengguna' => User::where('username','!=','admin')->count(),
+            'transaksi' => Transaksi::count()
         ]);
     }
 

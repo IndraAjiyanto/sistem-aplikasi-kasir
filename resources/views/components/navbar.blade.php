@@ -14,6 +14,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/barang">Barang</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pemasok">Pemasok</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Barang Masuk</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/barang">Barang</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/barang">Barang</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/barang">Barang</a>
+                </li>
                 @can('pengguna')
                 <li class="nav-item">
                     <a class="nav-link" href="/transaksi">Tarnsaksi</a>
